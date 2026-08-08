@@ -1,5 +1,0 @@
-alert tcp any any -> any 102 (msg:"ICS-AUDIT VULN-01 S7comm session sans authentification (COTP CR)"; flow:to_server; content:"|03 00|"; offset:0; depth:2; content:"|e0|"; offset:5; depth:1; sid:9000001; rev:1; classtype:protocol-command-decode; priority:2;)
-alert tcp any 102 -> any any (msg:"ICS-AUDIT VULN-01 S7comm reponse en clair depuis automate"; flow:to_client; content:"|03 00|"; offset:0; depth:2; sid:9000002; rev:1; classtype:protocol-command-decode; priority:2;)
-alert tcp any any -> any 4840 (msg:"ICS-AUDIT VULN-02 OPC UA Hello message (negociation en clair)"; flow:to_server; content:"HEL"; offset:0; depth:3; sid:9000010; rev:1; classtype:protocol-command-decode; priority:1;)
-alert tcp any any -> any 4840 (msg:"ICS-AUDIT VULN-02 OPC UA OpenSecureChannel (verifier SecurityPolicy=None)"; flow:to_server; content:"OPN"; offset:0; depth:3; sid:9000011; rev:1; classtype:protocol-command-decode; priority:1;)
-alert tcp any any -> any 4840 (msg:"ICS-AUDIT VULN-02 OPC UA CreateSession sans authentification prealable"; flow:to_server; content:"MSG"; offset:0; depth:3; sid:9000012; rev:1; classtype:protocol-command-decode; priority:1;)
